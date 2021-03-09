@@ -24,30 +24,40 @@ public class BootStrapData implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        Publisher mattMurdock = new Publisher("Matt Murdock",
+                "Address line 1", "city", "state", "zip");
+
+        publisherRepository.save(mattMurdock);
+
         Author chris = new Author("Chris", "Evans");
         Book captainAmerica = new Book("Captain America", "123123");
         chris.getBooks().add(captainAmerica);
         captainAmerica.getAuthors().add(chris);
 
+        captainAmerica.setPublisher(mattMurdock);
+        mattMurdock.getBooks().add(captainAmerica);
+
         authorRepository.save(chris);
         bookRepository.save(captainAmerica);
+        publisherRepository.save(mattMurdock);
 
         Author tom = new Author("Tom", "Holland");
         Book spiderMan = new Book("Spiderman", "123124");
         tom.getBooks().add(spiderMan);
         spiderMan.getAuthors().add(tom);
 
+        spiderMan.setPublisher(mattMurdock);
+        mattMurdock.getBooks().add(spiderMan);
+
         authorRepository.save(tom);
         bookRepository.save(spiderMan);
+        publisherRepository.save(mattMurdock);
 
-        Publisher publisher = new Publisher("Matt Murdock",
-                "Address line 1", "city", "state", "zip");
-
-        publisherRepository.save(publisher);
 
         System.out.println("Started in Bootstrap");
         System.out.println("Number of Books: " + bookRepository.count());
         System.out.println("Number of Authors: " + authorRepository.count());
-        System.out.println("Publisher: " + publisherRepository.findById(publisher.getId()).get());
+        System.out.println("Publisher: " + publisherRepository.findById(mattMurdock.getId()).get());
+        System.out.println("Publisher Number of Books: " + mattMurdock.getBooks().size());
     }
 }

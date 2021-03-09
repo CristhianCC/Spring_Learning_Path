@@ -21,6 +21,9 @@ public class Book {
     )
     private Set<Author> authors = new HashSet<Author>();
 
+    @ManyToOne
+    private Publisher publisher;
+
     public Book() {
     }
 
@@ -33,6 +36,13 @@ public class Book {
         this.title = title;
         this.isbn = isbn;
         this.authors = authors;
+    }
+
+    public Book(String title, String isbn, Set<Author> authors, Publisher publisher) {
+        this.title = title;
+        this.isbn = isbn;
+        this.authors = authors;
+        this.publisher = publisher;
     }
 
     public Long getId() {
@@ -67,6 +77,14 @@ public class Book {
         this.authors = authors;
     }
 
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
+    }
+
     @Override
     public String toString() {
         return "Book{" +
@@ -74,6 +92,7 @@ public class Book {
                 ", title='" + title + '\'' +
                 ", isbn='" + isbn + '\'' +
                 ", authors=" + authors +
+                ", publisher=" + publisher +
                 '}';
     }
 
