@@ -2,8 +2,10 @@ package com.spring.app.springapp.bootstrap;
 
 import com.spring.app.springapp.domain.Author;
 import com.spring.app.springapp.domain.Book;
+import com.spring.app.springapp.domain.Publisher;
 import com.spring.app.springapp.repositories.AuthorRepository;
 import com.spring.app.springapp.repositories.BookRepository;
+import com.spring.app.springapp.repositories.PublisherRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -12,10 +14,12 @@ public class BootStrapData implements CommandLineRunner {
 
     private final AuthorRepository authorRepository;
     private final BookRepository bookRepository;
+    private final PublisherRepository publisherRepository;
 
-    public BootStrapData(AuthorRepository authorRepository, BookRepository bookRepository) {
+    public BootStrapData(AuthorRepository authorRepository, BookRepository bookRepository, PublisherRepository publisherRepository) {
         this.authorRepository = authorRepository;
         this.bookRepository = bookRepository;
+        this.publisherRepository = publisherRepository;
     }
 
     @Override
@@ -36,8 +40,14 @@ public class BootStrapData implements CommandLineRunner {
         authorRepository.save(tom);
         bookRepository.save(spiderMan);
 
+        Publisher publisher = new Publisher("Matt Murdock",
+                "Address line 1", "city", "state", "zip");
+
+        publisherRepository.save(publisher);
+
         System.out.println("Started in Bootstrap");
         System.out.println("Number of Books: " + bookRepository.count());
         System.out.println("Number of Authors: " + authorRepository.count());
+        System.out.println("Publisher: " + publisherRepository.findById(publisher.getId()).get());
     }
 }
