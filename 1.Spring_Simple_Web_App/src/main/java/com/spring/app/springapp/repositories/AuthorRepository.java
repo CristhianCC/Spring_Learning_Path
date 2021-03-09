@@ -1,4 +1,4 @@
-package com.spring.app.springapp.domain.repositories;
+package com.spring.app.springapp.repositories;
 
 import com.spring.app.springapp.domain.Author;
 import org.springframework.data.repository.CrudRepository;
