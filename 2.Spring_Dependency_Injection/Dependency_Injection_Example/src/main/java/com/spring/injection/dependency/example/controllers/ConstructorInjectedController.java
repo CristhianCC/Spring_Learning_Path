@@ -4,7 +4,7 @@ import com.spring.injection.dependency.example.services.GreetingService;
 
 public class ConstructorInjectedController {
 
-    public GreetingService greetingService;
+    private final GreetingService greetingService;
 
     public ConstructorInjectedController(GreetingService greetingService) {
         this.greetingService = greetingService;
