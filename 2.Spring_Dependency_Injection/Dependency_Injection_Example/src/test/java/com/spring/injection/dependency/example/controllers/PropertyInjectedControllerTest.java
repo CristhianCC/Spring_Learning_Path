@@ -16,6 +16,7 @@ class PropertyInjectedControllerTest {
         this.propertyInjectedController.greetingService = new GreetingServiceImpl();
     }
 
+    // This is a property injection, not the best way to use the dependency injection.
     @Test
     void getGreeting() {
         System.out.println(this.propertyInjectedController.greet());
