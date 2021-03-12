@@ -1,6 +1,6 @@
 package com.spring.injection.dependency.example.controllers;
 
-import com.spring.injection.dependency.example.services.GreetingServiceImpl;
+import com.spring.injection.dependency.example.services.ConstructorInjectedGreetingService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +13,7 @@ class SetterInjectedControllerTest {
     @BeforeEach
     void setUp() {
         this.setterInjectedController = new SetterInjectedController();
-        this.setterInjectedController.setGreetingService(new GreetingServiceImpl());
+        this.setterInjectedController.setGreetingService(new ConstructorInjectedGreetingService());
     }
 
     @Test
