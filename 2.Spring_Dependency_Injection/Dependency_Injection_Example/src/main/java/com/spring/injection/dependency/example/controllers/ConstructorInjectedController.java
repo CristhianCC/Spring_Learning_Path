@@ -1,7 +1,9 @@
 package com.spring.injection.dependency.example.controllers;
 
 import com.spring.injection.dependency.example.services.GreetingService;
+import org.springframework.stereotype.Controller;
 
+@Controller
 public class ConstructorInjectedController {
 
     private final GreetingService greetingService;
