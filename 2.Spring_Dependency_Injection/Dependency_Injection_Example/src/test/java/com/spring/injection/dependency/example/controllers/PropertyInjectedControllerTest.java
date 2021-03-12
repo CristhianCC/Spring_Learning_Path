@@ -4,8 +4,6 @@ import com.spring.injection.dependency.example.services.GreetingServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class PropertyInjectedControllerTest {
 
     PropertyInjectedController propertyInjectedController;

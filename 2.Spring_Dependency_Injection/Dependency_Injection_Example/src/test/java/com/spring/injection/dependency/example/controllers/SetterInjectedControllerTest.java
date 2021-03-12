@@ -4,8 +4,6 @@ import com.spring.injection.dependency.example.services.GreetingServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class SetterInjectedControllerTest {
 
     // This is a setter injected controller, even it it's from a private attribute,
