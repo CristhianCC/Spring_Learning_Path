@@ -16,9 +16,8 @@ public class ExampleApplication {
 
 		MyController myController = (MyController) appCtx.getBean("myController");
 
-		String greet = myController.sayHiToEveryone();
-
-		System.out.println(greet);
+		System.out.println("--------- Primary");
+		System.out.println(myController.sayHiToEveryone());
 
 		System.out.println("--------- Property");
 		PropertyInjectedController propertyInjectedController = (PropertyInjectedController) appCtx.getBean("propertyInjectedController");
